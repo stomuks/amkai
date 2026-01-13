@@ -1,0 +1,141 @@
+.form {
+	max-width: 540px;
+	margin: 0 auto;
+	background: none;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	padding: 32px 0;
+}
+
+.form__gender-group {
+	display: flex;
+	gap: 24px;
+	align-items: center;
+	margin-bottom: 12px;
+}
+.form__gender-label {
+	font-size: 14px;
+	font-weight: 400;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	margin-right: 8px;
+}
+.form__gender-radio {
+	margin-right: 4px;
+}
+
+.form__group {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+.form__label {
+	font-size: 12px;
+	color: #888;
+	margin-bottom: 2px;
+	font-weight: 400;
+}
+.form__input {
+	font-size: 16px;
+	padding: 10px 0;
+	border: none;
+	border-bottom: 1px solid #ddd;
+	background: transparent;
+	outline: none;
+	transition: border-color 0.2s;
+}
+.form__input:focus {
+	border-bottom: 1.5px solid #497cff;
+}
+
+.form__checkbox-group {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-top: 8px;
+}
+
+.form__checkbox-label {
+	display: flex;
+	align-items: center;
+	font-size: 20px;
+	color: #263047;
+	cursor: pointer;
+	gap: 12px;
+	user-select: none;
+	font-family: inherit;
+}
+
+/* Скрываем стандартный чекбокс */
+.form__checkbox {
+	opacity: 0;
+	width: 0;
+	height: 0;
+	position: absolute;
+}
+
+.form__checkbox-custom {
+	width: 30px;
+	height: 30px;
+	border: 2px solid #19202b;
+	border-radius: 2px;
+	display: inline-block;
+	position: relative;
+	margin-right: 12px;
+	background: #f2f6f8;
+	box-sizing: border-box;
+	transition: border-color 0.2s;
+}
+
+.form__checkbox:focus + .form__checkbox-custom {
+	border-color: #497cff;
+}
+
+/* Галочка */
+.form__checkbox-custom:after {
+	content: '';
+	position: absolute;
+	display: none;
+}
+
+/* Показываем галочку, если checked */
+.form__checkbox:checked + .form__checkbox-custom:after {
+	display: block;
+}
+
+.form__checkbox-custom:after {
+	left: 7px;
+	top: 1px;
+	width: 12px;
+	height: 22px;
+	border: solid #19202b;
+	border-width: 0 2.5px 2.5px 0;
+	transform: rotate(45deg) scale(0.7);
+	content: '';
+}
+
+.form__checkbox:checked + .form__checkbox-custom {
+	background: #f2f6f8;
+	border-color: #19202b;
+}
+
+.form__button-row {
+	display: flex;
+	margin-top: 10px;
+}
+.form__submit {
+	background: #263047;
+	color: #fff;
+	border: none;
+	border-radius: 22px;
+	padding: 10px 32px;
+	font-size: 14px;
+	cursor: pointer;
+	font-family: inherit;
+	transition: background 0.2s;
+}
+.form__submit:hover {
+	background: #123;
+}
