@@ -4,6 +4,7 @@
 	--white: #fff;
 	--gray: #ecf0f3;
 	--gold: #bd9f7c;
+	--fullBlack: #000;
 }
 
 :root {
@@ -11,7 +12,7 @@
 }
 
 :root {
-	--header-height: 80px;
+	--header-height: 93px;
 }
 
 html {
@@ -19,8 +20,8 @@ html {
 }
 
 body {
-	color: var(--3);
-	background-color: var(--1);
+	color: var(--black);
+	background-color: var(--white);
 	font-size: 1rem;
 
 	&.menu-open {
@@ -52,13 +53,13 @@ body {
 }
 
 [class$='__container-wide'] {
-	max-width: 1370px;
+	max-width: 1330px;
 	margin: 0 auto;
 	padding: 0 20px;
 	width: 100%;
 
 	@media (max-width: 1024px) {
-		padding: 0 4px;
+		padding: 0 20px;
 	}
 }
 
@@ -216,6 +217,7 @@ body {
 }
 
 .btn-primary {
+	cursor: pointer;
 	display: flex;
 	padding: 16px 24px;
 	justify-content: center;
@@ -233,4 +235,25 @@ body {
 		opacity: 0.8;
 	}
 	@extend .text-base;
+}
+
+.btn-sm {
+	margin-right: 0;
+	padding: 10px 20px;
+	color: #fff;
+	text-align: center;
+	font-family: Montserrat;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 140%; /* 19.6px */
+}
+
+.lg-outer .lg-thumb-item.active,
+.lg-outer .lg-thumb-item:hover {
+	border-color: var(--gold);
+}
+
+.lg-outer .lg-thumb-item {
+	border-color: transparent;
 }

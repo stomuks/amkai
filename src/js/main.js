@@ -1,22 +1,72 @@
 import Swiper from 'swiper'
-import { Navigation, Pagination } from 'swiper/modules'
+import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import 'swiper/css'
+
+import lightGallery from 'lightgallery'
+import lgThumbnail from 'lightgallery/plugins/thumbnail'
+import lgZoom from 'lightgallery/plugins/zoom'
+import lgVideo from 'lightgallery/plugins/video'
+
+import 'lightgallery/css/lightgallery.css'
+import 'lightgallery/css/lg-thumbnail.css'
+import 'lightgallery/css/lg-zoom.css'
+import 'lightgallery/css/lg-video.css'
+
 import '../scss/style.scss'
 
 document.addEventListener('DOMContentLoaded', () => {
-	const swiper = new Swiper('.swiper', {
-		modules: [Navigation, Pagination],
-		loop: false,
-		slidesPerView: 1,
-		centeredSlides: false,
-		spaceBetween: 0,
-		pagination: {
-			el: '.swiper-pagination',
-			type: 'fraction'
+	const gallery = document.getElementById('lightgallery')
+	if (gallery) {
+		lightGallery(gallery, {
+			plugins: [lgThumbnail, lgZoom, lgVideo],
+			videojs: true,
+			videojsOptions: {
+				controls: true,
+				autoplay: true
+			},
+			download: false
+		})
+	}
+
+	const partnersSwiper = new Swiper('.partners__slider', {
+		modules: [Autoplay],
+		loop: true,
+		slidesPerView: 'auto',
+		spaceBetween: 48,
+		speed: 3000,
+		autoplay: {
+			delay: 500,
+			disableOnInteraction: false
+		}
+	})
+
+	const reviewsSwiper = new Swiper('.reviews__slider', {
+		modules: [Navigation, Pagination, Autoplay],
+		loop: true,
+		slidesPerView: 'auto',
+		spaceBetween: 30,
+		speed: 500,
+		autoplay: {
+			delay: 5500,
+			disableOnInteraction: false
 		},
 		navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev'
+			nextEl: '.reviews__button-next',
+			prevEl: '.reviews__button-prev'
+		},
+		pagination: {
+			el: '.reviews__pagination',
+			type: 'fraction'
+		}
+	})
+
+	const GalleryItems = document.querySelectorAll('.gallery__item')
+	GalleryItems.forEach((item, idx) => {
+		const n = idx + 1
+		if (n % 6 === 4 && n > 0) {
+			item.classList.add('grid-6')
+		} else if ((n % 12 === 5 || n % 12 === 6) && n > 0) {
+			item.classList.add('grid-3')
 		}
 	})
 
@@ -72,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		element.style.transform = `translateY(${translateY}px) scaleX(${scaleX})`
 
 		element.style.backgroundColor = `rgba(255, 255, 255, ${progress})`
-		element.style.borderColor = `rgba(217, 221, 228, ${progress})`
+		element.style.borderColor = `rgba(189,159,124, ${progress})`
 		element.style.borderRadius = `24px`
 	})
 })

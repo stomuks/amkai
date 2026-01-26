@@ -1,0 +1,61 @@
+@media (max-width: 1024px) {
+	.header {
+		&__wrapper {
+			gap: 16px;
+		}
+		&__menu {
+			gap: 12px;
+		}
+	}
+
+	.partners {
+		&__slide {
+			width: 122px;
+		}
+	}
+
+	.space {
+		&__tabs {
+			flex-direction: column;
+		}
+	}
+
+	.features {
+		&__grid {
+			gap: 36px;
+		}
+	}
+
+	.gallery {
+		&__grid {
+			gap: 12px;
+		}
+
+		&__item {
+			height: 300px;
+		}
+
+		&__item.grid-6 {
+			height: 375px;
+			grid-column: span 6;
+		}
+
+		&__item.grid-3 {
+			height: 375px;
+			grid-column: span 3;
+		}
+	}
+
+	.register {
+		&__grid {
+			gap: 10px;
+		}
+
+		.form {
+			&__label {
+				font-size: 14px;
+				line-height: normal;
+			}
+		}
+	}
+}
