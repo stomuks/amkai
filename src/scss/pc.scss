@@ -7,6 +7,7 @@
 	transform-origin: top center;
 	will-change: transform;
 	transition: all 0.3s ease;
+	background-color: var(--white);
 	&__container-wide {
 		max-width: 1400px;
 		border: 1px solid transparent;
@@ -17,16 +18,13 @@
 		justify-content: space-between;
 		gap: 32px;
 		align-items: center;
-		padding-block: 20px;
+		padding-block: 24px;
 		width: 100%;
 	}
 
 	&__block {
 		display: flex;
 		gap: 32px;
-	}
-
-	&__logo {
 	}
 
 	&__menu {
@@ -50,6 +48,10 @@
 		&:hover {
 			opacity: 0.7;
 		}
+	}
+
+	&__open-btn {
+		display: none;
 	}
 }
 
@@ -441,9 +443,12 @@
 	}
 
 	&__slider {
-		width: calc(100% - (100vw / 2 - 665px));
-		margin-left: calc(100vw / 2 - 665px);
-		padding-left: 20px;
+		width: 100%;
+		@media (min-width: 1253px) {
+			padding-left: 20px;
+			width: calc(100% - (100vw / 2 - 665px));
+			margin-left: calc(100vw / 2 - 665px);
+		}
 	}
 
 	&__slide {

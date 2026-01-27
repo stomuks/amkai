@@ -13,6 +13,10 @@
 
 :root {
 	--header-height: 93px;
+
+	@media (max-width: 768px) {
+		--header-height: 79px;
+	}
 }
 
 html {
@@ -73,6 +77,10 @@ body {
 	@media (max-width: 768px) {
 		padding-block: 32px;
 	}
+
+	@media (max-width: 480px) {
+		padding-block: 24px;
+	}
 }
 
 .p-80 {
@@ -84,6 +92,10 @@ body {
 
 	@media (max-width: 768px) {
 		padding-block: 48px;
+	}
+
+	@media (max-width: 480px) {
+		padding-block: 32px;
 	}
 }
 
@@ -235,6 +247,15 @@ body {
 		opacity: 0.8;
 	}
 	@extend .text-base;
+
+	@media (max-width: 768px) {
+		font-size: 14px;
+		padding: 10px 20px;
+	}
+	&:disabled {
+		background-color: var(--black40);
+		cursor: not-allowed;
+	}
 }
 
 .btn-sm {

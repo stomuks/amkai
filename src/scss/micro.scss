@@ -1,0 +1,117 @@
+@media (max-width: 480px) {
+	.space {
+		&__grid {
+			grid-template-columns: repeat(1, 1fr);
+		}
+
+		&__img {
+			min-height: 100vw;
+		}
+	}
+
+	.eventarten {
+		&__grid {
+			grid-template-columns: repeat(1, 1fr);
+		}
+
+		&__block {
+			gap: 40px;
+		}
+	}
+
+	.location {
+		&__container-wide {
+			padding-inline: 0;
+		}
+
+		&__text {
+			padding-inline: 16px;
+		}
+	}
+
+	.space {
+		&__grid {
+			gap: 40px;
+		}
+	}
+
+	.reviews {
+		&__block {
+			gap: 36px;
+		}
+		&__slide {
+			width: 250px;
+		}
+	}
+
+	.register {
+		.person {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		.form {
+			&__label {
+				font-size: 12px;
+			}
+
+			&__checkbox-label {
+				font-size: 14px;
+			}
+		}
+	}
+
+	.gallery {
+		&__grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		&__block {
+			gap: 40px;
+		}
+
+		&__item,
+		&__item.grid-6,
+		&__item.grid-3 {
+			grid-column: span 1;
+			height: auto;
+			aspect-ratio: 1 / 1;
+		}
+	}
+
+	.footer {
+		padding-block: 20px;
+
+		&__head {
+			gap: 40px;
+		}
+
+		&__logo {
+			width: 80px;
+			height: 80px;
+		}
+
+		&__icons {
+			display: flex;
+			gap: 8px;
+		}
+
+		&__wrapper {
+			gap: 40px;
+		}
+
+		&__right {
+			flex-direction: column;
+			gap: 40px;
+		}
+
+		&__foo {
+			gap: 8px;
+		}
+
+		&__pages {
+			flex-direction: column;
+			gap: 8px;
+		}
+	}
+}

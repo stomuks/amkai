@@ -32,11 +32,25 @@ document.addEventListener('DOMContentLoaded', () => {
 		modules: [Autoplay],
 		loop: true,
 		slidesPerView: 'auto',
-		spaceBetween: 48,
+		spaceBetween: 12,
 		speed: 3000,
 		autoplay: {
 			delay: 500,
 			disableOnInteraction: false
+		},
+		breakpoints: {
+			320: {
+				spaceBetween: 16
+			},
+			768: {
+				spaceBetween: 24
+			},
+			1024: {
+				spaceBetween: 36
+			},
+			1440: {
+				spaceBetween: 48
+			}
 		}
 	})
 
@@ -71,8 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	})
 
 	const body = document.querySelector('body')
-	const menuButton = document.querySelector('.menu__button')
-	const menuList = document.querySelector('.menu__list')
+	const menuButton = document.querySelector('.header__open-btn')
+	const menuList = document.querySelector('.header__menu')
 
 	if (body && menuButton && menuList) {
 		const openMenu = () => {
@@ -108,21 +122,4 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 		})
 	}
-
-	const element = document.querySelector('.header__container-wide')
-
-	window.addEventListener('scroll', () => {
-		const scrollY = window.scrollY
-		const maxScroll = 100
-		const progress = Math.min(scrollY / maxScroll, 1)
-
-		const scaleX = 1 - (16 / element.offsetWidth) * progress
-		const translateY = 8 * progress
-
-		element.style.transform = `translateY(${translateY}px) scaleX(${scaleX})`
-
-		element.style.backgroundColor = `rgba(255, 255, 255, ${progress})`
-		element.style.borderColor = `rgba(189,159,124, ${progress})`
-		element.style.borderRadius = `24px`
-	})
 })
