@@ -15,6 +15,25 @@ import 'lightgallery/css/lg-video.css'
 import '../scss/style.scss'
 
 document.addEventListener('DOMContentLoaded', () => {
+	function setInitialValue() {
+		var hiddenInputs = document.querySelectorAll(
+			'input[type="hidden"][name="honeyjackpot"]'
+		)
+		if (hiddenInputs) {
+			hiddenInputs.forEach(function (hiddenInput) {
+				hiddenInput.value = 'pothoney'
+			})
+		}
+	}
+
+	window.addEventListener('scroll', function () {
+		setInitialValue()
+	})
+
+	window.addEventListener('click', function () {
+		setInitialValue()
+	})
+
 	const gallery = document.getElementById('lightgallery')
 	if (gallery) {
 		lightGallery(gallery, {
