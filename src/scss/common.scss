@@ -21,15 +21,56 @@
 
 html {
 	font-size: 16px;
+	scroll-behavior: smooth;
 }
 
 body {
 	color: var(--black);
 	background-color: var(--white);
 	font-size: 1rem;
+	scroll-behavior: smooth;
 
 	&.menu-open {
 		overflow: hidden;
+	}
+}
+
+.notyf__error {
+	border-radius: 10px;
+}
+
+.is-invalid {
+	border-bottom: 1px solid #be7070 !important;
+}
+
+.is-invalid + .form__label {
+	color: #be7070 !important;
+}
+
+.form__checkbox-hidden {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+/* Chrome, Edge, Safari */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+	-moz-appearance: textfield;
+}
+
+.form__checkbox-hidden.is-invalid + .form__checkbox-label {
+	color: #be7070 !important;
+
+	.form__checkbox::after {
+		border-color: #be7070 !important;
 	}
 }
 

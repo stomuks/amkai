@@ -54,6 +54,12 @@
 				font-size: 14px;
 				line-height: normal;
 			}
+
+			&__col {
+				display: flex;
+				flex-direction: column;
+				gap: 20px;
+			}
 		}
 	}
 }

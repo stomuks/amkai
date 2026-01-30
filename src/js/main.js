@@ -2,6 +2,9 @@ import Swiper from 'swiper'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import 'swiper/css'
 
+import { Notyf } from 'notyf'
+import 'notyf/notyf.min.css'
+
 import lightGallery from 'lightgallery'
 import lgThumbnail from 'lightgallery/plugins/thumbnail'
 import lgZoom from 'lightgallery/plugins/zoom'
@@ -15,6 +18,45 @@ import 'lightgallery/css/lg-video.css'
 import '../scss/style.scss'
 
 document.addEventListener('DOMContentLoaded', () => {
+	const notyf = new Notyf({
+		types: [
+			{
+				type: 'error',
+				background: '#9f1339',
+				className: 'notyf__error'
+			},
+			{
+				type: 'success',
+				className: 'notyf__error'
+			}
+		]
+	})
+
+	const formFetch = document.getElementById('form')
+
+	if (formFetch) {
+		const formCheckbox = document.querySelector('.form__checkbox-label')
+		const formCheckboxHidden = document.querySelector('.form__checkbox-hidden')
+
+		if (formCheckbox && formCheckboxHidden) {
+			formCheckbox.addEventListener('click', () => {
+				if (formCheckboxHidden.value) {
+					formCheckboxHidden.value = ''
+				} else {
+					formCheckboxHidden.value = '1'
+				}
+			})
+		}
+		FetchIt.Message = {
+			success(message) {
+				notyf.success(message)
+			},
+			error(message) {
+				notyf.error(message)
+			}
+		}
+	}
+
 	function setInitialValue() {
 		var hiddenInputs = document.querySelectorAll(
 			'input[type="hidden"][name="honeyjackpot"]'

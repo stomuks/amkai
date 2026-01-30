@@ -585,14 +585,15 @@
 						</div>
 						<div class="register__right">
 							<form class="register__form form" id="form">
+								<input type="hidden" name="honeyjackpot" value="1" />
+								<input type="email" name="honeypot" class="honeypot" value="" />
 								<div class="form__gender-group">
 									<label class="form__gender-label">
 										<input
 											type="radio"
 											name="gender"
-											value="frau"
+											value="Frau"
 											class="form__gender-radio"
-											required
 										/>
 										Frau
 									</label>
@@ -600,7 +601,7 @@
 										<input
 											type="radio"
 											name="gender"
-											value="herr"
+											value="Herr"
 											class="form__gender-radio"
 										/>
 										Herr
@@ -609,7 +610,7 @@
 										<input
 											type="radio"
 											name="gender"
-											value="divers"
+											value="Divers"
 											class="form__gender-radio"
 										/>
 										Divers
@@ -622,7 +623,6 @@
 										type="text"
 										id="name"
 										name="name"
-										required
 										placeholder=" "
 									/>
 									<label class="form__label" for="name">Name*</label>
@@ -645,7 +645,6 @@
 										type="tel"
 										id="telefon"
 										name="telefon"
-										required
 										placeholder=" "
 									/>
 									<label class="form__label" for="telefon">Telefon*</label>
@@ -657,7 +656,6 @@
 										type="email"
 										id="email"
 										name="email"
-										required
 										placeholder=" "
 									/>
 									<label class="form__label" for="email">E-Mail*</label>
@@ -669,7 +667,6 @@
 										type="text"
 										id="event"
 										name="event"
-										required
 										placeholder=" "
 									/>
 									<label class="form__label" for="event">Event-Anlass*</label>
@@ -681,7 +678,8 @@
 										type="number"
 										id="personenzahl"
 										name="personenzahl"
-										required
+										min="1"
+										step="1"
 										placeholder=" "
 									/>
 									<label class="form__label" for="personenzahl"
@@ -689,29 +687,58 @@
 									>
 								</div>
 
-								<div class="form__group">
-									<input
-										class="form__input"
-										type="text"
-										id="wunsch"
-										name="wunsch"
-										required
-										placeholder=" "
-									/>
-									<label class="form__label" for="wunsch">Wunschtermin*</label>
+								<div class="form__col">
+									<div class="form__group">
+										<input
+											class="form__input"
+											type="text"
+											id="wunsch"
+											name="wunsch"
+											placeholder=" "
+										/>
+										<label class="form__label" for="wunsch"
+											>Wunschtermin*</label
+										>
+									</div>
+
+									<div class="form__group">
+										<input
+											class="form__input"
+											type="text"
+											id="alternativtermin"
+											name="alternativtermin"
+											placeholder=" "
+										/>
+										<label class="form__label" for="alternativtermin"
+											>Alternativtermin</label
+										>
+									</div>
 								</div>
 
-								<div class="form__group">
-									<input
-										class="form__input"
-										type="text"
-										id="alternativtermin"
-										name="alternativtermin"
-										placeholder=" "
-									/>
-									<label class="form__label" for="alternativtermin"
-										>Alternativtermin</label
-									>
+								<div class="form__col">
+									<div class="form__group">
+										<input
+											class="form__input"
+											type="text"
+											id="begin"
+											name="begin"
+											placeholder=" "
+										/>
+										<label class="form__label" for="begin"
+											>Uhrzeit Beginn*</label
+										>
+									</div>
+
+									<div class="form__group">
+										<input
+											class="form__input"
+											type="text"
+											id="end"
+											name="end"
+											placeholder=" "
+										/>
+										<label class="form__label" for="end">Uhrzeit Ende*</label>
+									</div>
 								</div>
 
 								<div class="form__group">
@@ -720,7 +747,6 @@
 										type="text"
 										id="how"
 										name="how"
-										required
 										placeholder=" "
 									/>
 									<label class="form__label" for="how"
@@ -740,8 +766,19 @@
 								</div>
 
 								<div class="form__checkbox-group">
+									<input
+										type="hidden"
+										newrequired=""
+										value=""
+										name="checknone"
+										class="form__checkbox-hidden"
+									/>
 									<label class="form__checkbox-label">
-										<input type="checkbox" class="form__checkbox" required />
+										<input
+											type="checkbox"
+											class="form__checkbox"
+											name="checkbox"
+										/>
 										Ich akzeptiere die Datenschutzerklärung. *
 									</label>
 								</div>

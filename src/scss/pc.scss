@@ -219,6 +219,7 @@
 		flex-direction: column;
 		gap: 30px;
 		background: var(--gray);
+		justify-content: space-between;
 
 		&__info {
 			display: flex;
@@ -314,8 +315,8 @@
 				top: 50%;
 				left: 50%;
 				transform: translate(-50%, -50%);
-				width: 20px;
-				height: 20px;
+				width: 30px;
+				height: 30px;
 				object-fit: contain;
 				object-position: center;
 			}
@@ -701,6 +702,12 @@
 					opacity: 1;
 				}
 			}
+		}
+
+		&__col {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 16px;
 		}
 
 		&__group {
