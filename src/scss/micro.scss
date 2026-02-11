@@ -121,4 +121,24 @@
 			gap: 8px;
 		}
 	}
+
+	.widget {
+		bottom: 0;
+		right: 0;
+		width: 100%;
+		padding: 16px;
+
+		&__items {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		&__item {
+			border-radius: 100000px;
+			padding: 12px 16px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
 }

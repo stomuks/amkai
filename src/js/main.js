@@ -183,4 +183,40 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 		})
 	}
+
+	const header = document.querySelector('.header')
+	if (header) {
+		let lastScrollY = window.scrollY
+		let scrollTimeout
+		let isHidden = false
+
+		function showHeader() {
+			body.classList.remove('header-scroll')
+			isHidden = false
+		}
+
+		function hideHeader() {
+			body.classList.add('header-scroll')
+			isHidden = true
+		}
+
+		window.addEventListener('scroll', () => {
+			const currentScrollY = window.scrollY
+			if (currentScrollY > 95) {
+				if (currentScrollY > lastScrollY && !isHidden) {
+					hideHeader()
+				} else if (currentScrollY < lastScrollY) {
+					showHeader()
+				}
+			} else {
+				showHeader()
+			}
+			lastScrollY = currentScrollY
+
+			clearTimeout(scrollTimeout)
+			scrollTimeout = setTimeout(() => {
+				showHeader()
+			}, 250)
+		})
+	}
 })
