@@ -6,8 +6,6 @@ import { Notyf } from 'notyf'
 import 'notyf/notyf.min.css'
 
 import lottie from 'lottie-web'
-import animationData from './Amkai2.json'
-import phoneAnimationData from './phone.json'
 
 import lightGallery from 'lightgallery'
 import lgThumbnail from 'lightgallery/plugins/thumbnail'
@@ -227,13 +225,22 @@ document.addEventListener('DOMContentLoaded', () => {
 	const isMobile = window.innerWidth <= 768
 
 	const lottieContainer = document.getElementById('lottie')
+
 	if (lottieContainer) {
-		lottie.loadAnimation({
-			container: document.getElementById('lottie'),
-			renderer: 'svg',
-			loop: true,
-			autoplay: true,
-			animationData: isMobile ? phoneAnimationData : animationData
-		})
+		const loadAnimation = async () => {
+			const animationModule = isMobile
+				? await import('./phone.json')
+				: await import('./Amkai2.json')
+
+			lottie.loadAnimation({
+				container: lottieContainer,
+				renderer: 'svg',
+				loop: true,
+				autoplay: true,
+				animationData: animationModule.default
+			})
+		}
+
+		loadAnimation()
 	}
 })
