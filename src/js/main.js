@@ -6,8 +6,8 @@ import { Notyf } from 'notyf'
 import 'notyf/notyf.min.css'
 
 import lottie from 'lottie-web'
-import animationData from '../img/Amkai2.json'
-import phoneAnimationData from '../img/phone.json'
+import animationData from './Amkai2.json'
+import phoneAnimationData from './phone.json'
 
 import lightGallery from 'lightgallery'
 import lgThumbnail from 'lightgallery/plugins/thumbnail'
