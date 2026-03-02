@@ -226,11 +226,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	const isMobile = window.innerWidth <= 768
 
-	lottie.loadAnimation({
-		container: document.getElementById('lottie'),
-		renderer: 'svg',
-		loop: true,
-		autoplay: true,
-		animationData: isMobile ? phoneAnimationData : animationData
-	})
+	const lottieContainer = document.getElementById('lottie')
+	if (lottieContainer) {
+		lottie.loadAnimation({
+			container: document.getElementById('lottie'),
+			renderer: 'svg',
+			loop: true,
+			autoplay: true,
+			animationData: isMobile ? phoneAnimationData : animationData
+		})
+	}
 })
