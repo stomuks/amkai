@@ -5,6 +5,10 @@ import 'swiper/css'
 import { Notyf } from 'notyf'
 import 'notyf/notyf.min.css'
 
+import lottie from 'lottie-web'
+import animationData from '../img/Amkai2.json'
+import phoneAnimationData from '../img/phone.json'
+
 import lightGallery from 'lightgallery'
 import lgThumbnail from 'lightgallery/plugins/thumbnail'
 import lgZoom from 'lightgallery/plugins/zoom'
@@ -74,65 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	window.addEventListener('click', function () {
 		setInitialValue()
-	})
-
-	const gallery = document.getElementById('lightgallery')
-	if (gallery) {
-		lightGallery(gallery, {
-			plugins: [lgThumbnail, lgZoom, lgVideo],
-			videojs: true,
-			videojsOptions: {
-				controls: true,
-				autoplay: true
-			},
-			download: false
-		})
-	}
-
-	const partnersSwiper = new Swiper('.partners__slider', {
-		modules: [Autoplay],
-		loop: true,
-		slidesPerView: 'auto',
-		spaceBetween: 12,
-		speed: 3000,
-		autoplay: {
-			delay: 500,
-			disableOnInteraction: false
-		},
-		breakpoints: {
-			320: {
-				spaceBetween: 16
-			},
-			768: {
-				spaceBetween: 24
-			},
-			1024: {
-				spaceBetween: 36
-			},
-			1440: {
-				spaceBetween: 48
-			}
-		}
-	})
-
-	const reviewsSwiper = new Swiper('.reviews__slider', {
-		modules: [Navigation, Pagination, Autoplay],
-		loop: true,
-		slidesPerView: 'auto',
-		spaceBetween: 30,
-		speed: 500,
-		autoplay: {
-			delay: 5500,
-			disableOnInteraction: false
-		},
-		navigation: {
-			nextEl: '.reviews__button-next',
-			prevEl: '.reviews__button-prev'
-		},
-		pagination: {
-			el: '.reviews__pagination',
-			type: 'fraction'
-		}
 	})
 
 	const GalleryItems = document.querySelectorAll('.gallery__item')
@@ -219,4 +164,73 @@ document.addEventListener('DOMContentLoaded', () => {
 			}, 250)
 		})
 	}
+
+	const gallery = document.getElementById('lightgallery')
+	if (gallery) {
+		lightGallery(gallery, {
+			plugins: [lgThumbnail, lgZoom, lgVideo],
+			videojs: true,
+			videojsOptions: {
+				controls: true,
+				autoplay: true
+			},
+			download: false
+		})
+	}
+
+	const partnersSwiper = new Swiper('.partners__slider', {
+		modules: [Autoplay],
+		loop: true,
+		slidesPerView: 'auto',
+		spaceBetween: 12,
+		speed: 3000,
+		autoplay: {
+			delay: 500,
+			disableOnInteraction: false
+		},
+		breakpoints: {
+			320: {
+				spaceBetween: 16
+			},
+			768: {
+				spaceBetween: 24
+			},
+			1024: {
+				spaceBetween: 36
+			},
+			1440: {
+				spaceBetween: 48
+			}
+		}
+	})
+
+	const reviewsSwiper = new Swiper('.reviews__slider', {
+		modules: [Navigation, Pagination, Autoplay],
+		loop: true,
+		slidesPerView: 'auto',
+		spaceBetween: 30,
+		speed: 500,
+		autoplay: {
+			delay: 5500,
+			disableOnInteraction: false
+		},
+		navigation: {
+			nextEl: '.reviews__button-next',
+			prevEl: '.reviews__button-prev'
+		},
+		pagination: {
+			el: '.reviews__pagination',
+			type: 'fraction'
+		}
+	})
+
+	const isMobile = window.innerWidth <= 768
+
+	lottie.loadAnimation({
+		container: document.getElementById('lottie'),
+		renderer: 'svg',
+		loop: true,
+		autoplay: true,
+		animationData: isMobile ? phoneAnimationData : animationData
+	})
 })
